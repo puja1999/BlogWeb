@@ -1,0 +1,81 @@
+.register {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blueviolet;  */
+    /* text-shadow: 0px 2px 4px black;  */
+    background: linear-gradient(to right, #e3e8eb, #d4e3e7, #b7ddee);  
+      
+      /*url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+     /* background-size: cover; */
+  }
+  
+  .registerTitle {
+    font-size: 50px;
+    color: black;
+  }
+  
+  /* .registerForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .registerForm {
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.89);
+    padding: 15px 40px;
+    margin: 10px;
+    margin-top: 20px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    width: auto; 
+  }
+  
+  .registerForm > label {
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 800;
+    
+  }
+  
+  .registerInput {
+    padding: 10px;
+    background-color: silver;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 10px;
+    
+  }
+  
+  .registerButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #1873fc;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    
+  }
+  
+  .registerLoginButton {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1873fc;
+    cursor: pointer;
+    border: none;
+    padding: 10px 30px;
+    color:white; 
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    /* box-shadow: 0 3px 10px DodgerBlue; */
+  }
