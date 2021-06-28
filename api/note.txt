@@ -1,0 +1,112 @@
+npm add express mongoose dotenv multer
+
+// dotenv - to hide password of mongoUrl
+// multer - to upload images
+
+// creating express server, (index.js)
+
+const express = require("express");
+const app = express();
+
+app.listen("5000", () => {
+    console.log("Backend is running.");
+});
+
+// to run application
+npm init
+
+// to start  this application
+"script": {
+    "start": "node index.js"
+},
+
+// terminal
+npm add nodemon
+npm start
+
+// try application in the browser
+
+app.use("/", (req, res) => {
+    console.log("this is main url")
+})
+
+// in the broweser
+
+localhost:5000
+
+// create a file (.env) and store secret url, eg, mongoUrl
+(.env)
+
+MONGO_URL = // choose db and password
+
+// to use above env file
+const dotenv = require("dotenv");
+
+const mongoose = require('mongoose);
+// copy conncetion method from doc
+
+mongoose.conncet()
+dotenv.config();
+
+
+// create models and routes folders, 
+models=> User.js  Post.js  Category.js  // Schema
+routes=> categories.js  posts.js  users.js  auth.js
+
+// create all three schemas
+// create all route auth
+
+Q) why using async function in auth.js ?
+
+because when we create new user, its gonna connect our database and try to create new one, 
+and its gonna return us a response so all of this process takes some time, and there is no way to know this duration,
+so this is basically  async function
+router.post("/register", async (req, res)) =>{
+try{
+
+} catch (err){
+    res.status(500).json(err);
+}
+}
+
+Q) what's this req and res ?
+this is basically what we are sending to our server,
+when we create a user we can send username, email, password everything inside this request,
+so what's this response ?
+after this whole process, it's gonna return as a response it can be a user or just warning or
+you can return any string, or we can say, creating user is successful, something like this, this is our response
+
+if you are creating async function you should use try and catch block coz we are gonna try to 
+conncet our db and try to create new user and all this process can be fail so in this case, we are gonna catch this error
+
+const user = await newUSer.save();
+
+// this save() method is coming from our mongoose, because we are using here, our user Schema
+
+// to test post method use Postman
+its an application through which we can make any requests for your api.
+new request, create own collection name, choose POST,
+localhost:5000/api/auth   indicate this router inside index.js first
+const authRoute = require("./routes/auth");
+// to use this route
+app.use("/api/auth", authRoute);
+
+// we are not supposed to see the password in database,because it should be always private.
+if someone reads your database they can see every password and they can use them for somw bad intensions 
+so w'll hide this password using a library bcrypt
+npm add bcrypt
+
+bcrypt is an hashing library that can safely store our passwords, its an async function.
+
+inside auth.js route, import this library
+import bcrypt = require("bcrypt");
+
+POST requests for Login in auth.js in route folders
+const user = await User.findOne({ username: req.body.username }); 
+// finding our user using findOne() method as there is only one user with one username and email 
+so we pass condition inside that findOne() method, which user i wanna try to find,
+ its gonna try to find this user inside mongodb
+
+ const validated = await bcrypt.compare(req.body.password, user.password); 
+ // if there is user we should validate our password because we will compare the user password with the hashed password in db,
+  if they are same user can login
